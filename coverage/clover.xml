@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1615731658813" clover="3.2.0">
-  <project timestamp="1615731658814" name="All files">
-    <metrics statements="226" coveredstatements="149" conditionals="106" coveredconditionals="76" methods="69" coveredmethods="38" elements="401" coveredelements="263" complexity="0" loc="226" ncloc="226" packages="3" files="16" classes="16"/>
+<coverage generated="1615741669168" clover="3.2.0">
+  <project timestamp="1615741669168" name="All files">
+    <metrics statements="230" coveredstatements="153" conditionals="110" coveredconditionals="79" methods="71" coveredmethods="40" elements="411" coveredelements="272" complexity="0" loc="230" ncloc="230" packages="3" files="16" classes="16"/>
     <package name="constants">
       <metrics statements="8" coveredstatements="8" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
       <file name="routes.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\constants\routes.js">
@@ -45,9 +45,9 @@
         <line num="35" count="0" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
         <line num="48" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
       </file>
       <file name="Dashboard.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\containers\Dashboard.js">
         <metrics statements="78" coveredstatements="70" conditionals="45" coveredconditionals="37" methods="25" coveredmethods="16"/>
@@ -228,23 +228,27 @@
       </file>
     </package>
     <package name="views">
-      <metrics statements="28" coveredstatements="26" conditionals="30" coveredconditionals="28" methods="14" coveredmethods="14"/>
+      <metrics statements="32" coveredstatements="30" conditionals="34" coveredconditionals="31" methods="16" coveredmethods="16"/>
       <file name="Actions.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\views\Actions.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="5" count="6" type="stmt"/>
       </file>
       <file name="BillsUI.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\views\BillsUI.js">
-        <metrics statements="10" coveredstatements="8" conditionals="8" coveredconditionals="6" methods="5" coveredmethods="5"/>
-        <line num="7" count="6" type="stmt"/>
-        <line num="8" count="4" type="stmt"/>
-        <line num="22" count="6" type="stmt"/>
-        <line num="23" count="5" type="cond" truecount="4" falsecount="0"/>
-        <line num="28" count="5" type="stmt"/>
-        <line num="45" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="47" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="51" count="5" type="stmt"/>
+        <metrics statements="14" coveredstatements="12" conditionals="12" coveredconditionals="9" methods="7" coveredmethods="7"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="23" count="6" type="stmt"/>
+        <line num="24" count="5" type="cond" truecount="4" falsecount="0"/>
+        <line num="25" count="4" type="stmt"/>
+        <line num="29" count="6" type="cond" truecount="3" falsecount="1"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="34" count="4" type="stmt"/>
+        <line num="39" count="5" type="stmt"/>
+        <line num="56" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="58" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="62" count="5" type="stmt"/>
       </file>
       <file name="DashboardFormUI.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\views\DashboardFormUI.js">
         <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>

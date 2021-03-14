@@ -59,6 +59,9 @@
   letter-spacing: 0.2px;
   cursor: pointer;
 }
+.bill-card.active{
+  background-color: #2A2B35;
+}
 
 .bill-card-name-container {
   display: flex;
@@ -117,3 +120,6 @@
   cursor: pointer;
 }
 
+.arrow-icon.active {
+  transform: rotate(0deg);
+}

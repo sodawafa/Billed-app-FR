@@ -40,9 +40,11 @@ export default class {
           .map(doc => ({
             ...doc.data(),
             date: formatDate(doc.data().date),
-            status: formatStatus(doc.data().status)
-          }))
+            status: formatStatus(doc.data().status),
+            dateTmp: new Date(doc.data().date) /*dateTmp: variable temporaire pour la comparaison*/
+        }))
           .filter(bill => bill.email === userEmail)
+        /*bills.sort((a,b) => (a.dateTmp > b.dateTmp) ? 1 : ((b.dateTmp > a.dateTmp) ? -1 : 0))*/
         return bills
       })
       .catch(error => error)

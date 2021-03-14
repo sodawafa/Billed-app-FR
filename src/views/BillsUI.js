@@ -20,11 +20,24 @@ const row = (bill) => {
   }
 
 const rows = (data) => {
-  return (data && data.length) ? data.map(bill => row(bill)).join("") : ""
+  /*return (data && data.length) ? data.map(bill => row(bill)).join("") : ""*/
+  if(data && data.length){
+    if(!data[0].dateTmp){
+      data = data.map(bill => ({
+        ...bill,
+        dateTmp: new Date(bill.date), /*dateTmp: variable temporaire pour la comparaison*/
+      }))
+    }
+    data.sort((a,b) => (a.dateTmp > b.dateTmp) ? -1 : ((b.dateTmp > a.dateTmp) ? 1 : 0))
+
+    return  data.map(bill => row(bill)).join("")
+  }
+
+  return ""
 }
 
 export default ({ data: bills, loading, error }) => {
-  
+
   const modal = () => (`
     <div class="modal fade" id="modaleFile" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -47,7 +60,7 @@ export default ({ data: bills, loading, error }) => {
   } else if (error) {
     return ErrorPage(error)
   }
-  
+
   return (`
     <div class='layout'>
       ${VerticalLayout(120)}

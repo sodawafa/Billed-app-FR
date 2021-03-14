@@ -71,6 +71,8 @@ export default class {
     this.document = document
     this.onNavigate = onNavigate
     this.firestore = firestore
+    /*.filter(bill => bill.status === '')*/
+
     $('#arrow-icon1').click((e) => this.handleShowTickets(e, bills, 1))
     $('#arrow-icon2').click((e) => this.handleShowTickets(e, bills, 2))
     $('#arrow-icon3').click((e) => this.handleShowTickets(e, bills, 3))
@@ -86,25 +88,25 @@ export default class {
   }
 
   handleEditTicket(e, bill, bills) {
-    if (this.counter === undefined || this.id !== bill.id) this.counter = 0
-    if (this.id === undefined || this.id !== bill.id) this.id = bill.id
-    if (this.counter % 2 === 0) {
-      bills.forEach(b => {
-        $(`#open-bill${b.id}`).css({ background: '#0D5AE5' })
-      })
-      $(`#open-bill${bill.id}`).css({ background: '#2A2B35' })
-      $('.dashboard-right-container div').html(DashboardFormUI(bill))
-      $('.vertical-navbar').css({ height: '150vh' })
-      this.counter ++
-    } else {
-      $(`#open-bill${bill.id}`).css({ background: '#0D5AE5' })
+    const isActive = $(`#open-bill${bill.id}`).hasClass('active')
+    /*if (this.id === undefined || this.id !== bill.id) this.id = bill.id*/
+    /*console.log('handleEditTicket', $(`#open-bill${bill.id}`), isActive)*/
 
+    bills.forEach(b => {
+        $(`#open-bill${b.id}`).removeClass('active')
+    })
+
+    if(isActive){
       $('.dashboard-right-container div').html(`
         <div id="big-billed-icon"> ${BigBilledIcon} </div>
       `)
-      $('.vertical-navbar').css({ height: '120vh' })
-      this.counter ++
+    } else {
+      $(`#open-bill${bill.id}`).addClass('active');
+      $('.dashboard-right-container div').html(DashboardFormUI(bill))
     }
+
+    $('.vertical-navbar').css({ height: '120vh' })
+
     $('#icon-eye-d').click(this.handleClickIconEye)
     $('#btn-accept-bill').click((e) => this.handleAcceptSubmit(e, bill))
     $('#btn-refuse-bill').click((e) => this.handleRefuseSubmit(e, bill))
@@ -131,26 +133,27 @@ export default class {
   }
 
   handleShowTickets(e, bills, index) {
-    if (this.counter === undefined || this.index !== index) this.counter = 0
     if (this.index === undefined || this.index !== index) this.index = index
-    if (this.counter % 2 === 0) {
-      $(`#arrow-icon${this.index}`).css({ transform: 'rotate(0deg)'})
+    this.index = index
+
+    if ($(`#arrow-icon${this.index}`).hasClass('active')) {
+      $(`#arrow-icon${this.index}`).removeClass('active')
+      $(`#status-bills-container${this.index}`)
+      .html("")
+    }else{
+      $(`#arrow-icon${this.index}`).addClass('active')
       $(`#status-bills-container${this.index}`)
         .html(cards(filteredBills(bills, getStatus(this.index))))
-      this.counter ++
-    } else {
-      $(`#arrow-icon${this.index}`).css({ transform: 'rotate(90deg)'})
-      $(`#status-bills-container${this.index}`)
-        .html("")
-      this.counter ++
     }
 
-    bills.forEach(bill => {
-      $(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
+    console.log('handleShowTickets')
+    bills.filter(bill => bill.status === getStatus(this.index)).forEach(bill => {
+      $(`#open-bill${bill.id}`).click((e) => {
+        console.log('handleEditTicket click')
+        this.handleEditTicket(e, bill, bills)})
     })
 
     return bills
-
   }
 
   // not need to cover this function by tests
@@ -172,7 +175,7 @@ export default class {
       .catch(console.log)
     }
   }
-    
+
   // not need to cover this function by tests
   updateBill = (bill) => {
     if (this.firestore) {
