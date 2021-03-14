@@ -47,4 +47,4 @@ $jest src/__tests__/your_test_file.js
 
 [coverage report url](http://127.0.0.1:8080/coverage/lcov-report/)
 
-
+[TODO LIST](https://www.notion.so/1cf34a84d4c948ee885635c20b79a843?v=9d81c97862db42dcb26beb45609f9c25)
