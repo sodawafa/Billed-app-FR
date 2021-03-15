@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80.72% </span>
+                <span class="strong">80.23% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>67/83</span>
+                <span class='fraction'>69/86</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75.76% </span>
+                <span class="strong">74.29% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>25/33</span>
+                <span class='fraction'>26/35</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">86.49% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>64/74</span>
+                <span class='fraction'>66/77</span>
             </div>
         
             
@@ -246,7 +246,12 @@
 <a name='L187'></a><a href='#L187'>187</a>
 <a name='L188'></a><a href='#L188'>188</a>
 <a name='L189'></a><a href='#L189'>189</a>
-<a name='L190'></a><a href='#L190'>190</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L190'></a><a href='#L190'>190</a>
+<a name='L191'></a><a href='#L191'>191</a>
+<a name='L192'></a><a href='#L192'>192</a>
+<a name='L193'></a><a href='#L193'>193</a>
+<a name='L194'></a><a href='#L194'>194</a>
+<a name='L195'></a><a href='#L195'>195</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -320,7 +325,6 @@
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
@@ -333,6 +337,12 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -435,7 +445,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { formatDate } from '../app/format.js'
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { formatDate, isImage } from '../app/format.js'
 import DashboardFormUI from '../views/DashboardFormUI.js'
 import BigBilledIcon from '../assets/svg/big_billed.js'
 import { ROUTES_PATH } from '../constants/routes.js'
@@ -509,7 +519,6 @@ export default class {
     this.onNavigate = onNavigate
     this.firestore = firestore
     /*.filter(bill =&gt; bill.status === '')*/
-&nbsp;
     $('#arrow-icon1').click(<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >this.handleShowTickets(e, bills, 1))</span>
     $('#arrow-icon2').click(<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >this.handleShowTickets(e, bills, 2))</span>
     $('#arrow-icon3').click(<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >this.handleShowTickets(e, bills, 3))</span>
@@ -519,9 +528,15 @@ export default class {
 &nbsp;
   handleClickIconEye = () =&gt; {
     const billUrl = $('#icon-eye-d').attr("data-bill-url")
+    const fileName = $("#file-name-admin").text()
     const imgWidth = Math.floor($('#modaleFileAdmin1').width() * 0.8)
-    $('#modaleFileAdmin1').find(".modal-body").html(`&lt;div style='text-align: center;'&gt;&lt;img width=${imgWidth} src=${billUrl} /&gt;&lt;/div&gt;`)
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof $('#modaleFileAdmin1').modal === 'function') <span class="cstat-no" title="statement not covered" >$('#modaleFileAdmin1').modal('show')</span>
+    <span class="missing-if-branch" title="else path not taken" >E</span>if(isImage(fileName)){
+      $('#modaleFileAdmin1').find(".modal-body").html(`&lt;div style='text-align: center;'&gt;&lt;img width=${imgWidth} src=${billUrl} /&gt;&lt;/div&gt;`)
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof $('#modaleFileAdmin1').modal === 'function') <span class="cstat-no" title="statement not covered" >$('#modaleFileAdmin1').modal('show')</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      window.open(billUrl, '_blank');</span>
+      /*$('#modaleFileAdmin1').find(".modal-body").html(`&lt;div style='text-align: center;'&gt;&lt;a target="_blank" href=${billUrl}&gt;télécharger&lt;/a&gt;&lt;/div&gt;`)*/
+    }
   }
 &nbsp;
   handleEditTicket(e, bill, bills) {
@@ -543,7 +558,7 @@ export default class {
     }
 &nbsp;
     $('.vertical-navbar').css({ height: '120vh' })
-&nbsp;
+/*console.debug(isImage(bill.fileName))*/
     $('#icon-eye-d').click(this.handleClickIconEye)
     $('#btn-accept-bill').click(<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >this.handleAcceptSubmit(e, bill))</span>
     $('#btn-refuse-bill').click(<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >this.handleRefuseSubmit(e, bill))</span>
@@ -631,7 +646,7 @@ export default class {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Mar 15 2021 10:49:56 GMT+0100 (GMT+01:00)
+                at Mon Mar 15 2021 18:17:08 GMT+0100 (GMT+01:00)
             </div>
         </div>
         <script src="../prettify.js"></script>

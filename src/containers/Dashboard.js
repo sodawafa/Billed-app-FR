@@ -86,7 +86,7 @@ export default class {
     if(isImage(fileName)){
       $('#modaleFileAdmin1').find(".modal-body").html(`<div style='text-align: center;'><img width=${imgWidth} src=${billUrl} /></div>`)
       if (typeof $('#modaleFileAdmin1').modal === 'function') $('#modaleFileAdmin1').modal('show')
-    }else {
+    } else {
       window.open(billUrl, '_blank');
       /*$('#modaleFileAdmin1').find(".modal-body").html(`<div style='text-align: center;'><a target="_blank" href=${billUrl}>télécharger</a></div>`)*/
     }

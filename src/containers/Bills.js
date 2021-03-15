@@ -30,13 +30,12 @@ export default class {
     const billUrl = icon.getAttribute('data-bill-url')
     const fileName = icon.parentNode.querySelector(".eye-title").innerText
     if(isImage(fileName)){
-    const imgWidth = Math.floor($('#modaleFile').width() * 0.5)
-    $('#modaleFile').
-      find('.modal-body').
-      html(
-        `<div style='text-align: center;'><img width=${imgWidth} src=${billUrl} /></div>`)
-    $('#modaleFile').modal('show')
-    }else {
+      const imgWidth = Math.floor($('#modaleFile').width() * 0.5)
+      $('#modaleFile').
+        find('.modal-body').
+        html(`<div style='text-align: center;'><img width=${imgWidth} src=${billUrl} /></div>`)
+      $('#modaleFile').modal('show')
+    } else {
       window.open(billUrl,'_blank')
     }
   }

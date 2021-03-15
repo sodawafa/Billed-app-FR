@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/28</span>
+                <span class='fraction'>0/31</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>0/10</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/25</span>
+                <span class='fraction'>0/27</span>
             </div>
         
             
@@ -110,7 +110,28 @@
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -121,6 +142,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -137,6 +159,14 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -148,32 +178,40 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ROUTES_PATH } from '../constants/routes.js'
-import { formatDate, formatStatus } from "../app/format.js"
-import Logout from "./Logout.js"
+import {
+  formatDate,
+  formatStatus,
+  getDate,
+  isImage
+} from '../app/format.js'
+import Logout from './Logout.js'
 &nbsp;
 export default class {
-<span class="fstat-no" title="function not covered" >  co</span>nstructor({ document, onNavigate, firestore, localStorage }) {
+<span class="fstat-no" title="function not covered" >  co</span>nstructor ({ document, onNavigate, firestore, localStorage }) {
 <span class="cstat-no" title="statement not covered" >    this.document = document</span>
 <span class="cstat-no" title="statement not covered" >    this.onNavigate = onNavigate</span>
 <span class="cstat-no" title="statement not covered" >    this.firestore = firestore</span>
     const buttonNewBill = <span class="cstat-no" title="statement not covered" >document.querySelector(`button[data-testid="btn-new-bill"]`)</span>
-<span class="cstat-no" title="statement not covered" >    if (buttonNewBill) <span class="cstat-no" title="statement not covered" >buttonNewBill.addEventListener('click', this.handleClickNewBill)</span></span>
+<span class="cstat-no" title="statement not covered" >    if (buttonNewBill) <span class="cstat-no" title="statement not covered" >buttonNewBill.addEventListener('click',</span></span>
+      this.handleClickNewBill)
     const iconEye = <span class="cstat-no" title="statement not covered" >document.querySelectorAll(`div[data-testid="icon-eye"]`)</span>
 <span class="cstat-no" title="statement not covered" >    if (iconEye) <span class="cstat-no" title="statement not covered" >iconEye.forEach(<span class="fstat-no" title="function not covered" >ic</span>on =&gt; {</span></span>
 <span class="cstat-no" title="statement not covered" >      icon.addEventListener('click', <span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >this.handleClickIconEye(icon))</span></span>
@@ -186,33 +224,43 @@ export default class {
   }
 &nbsp;
   handleClickIconEye = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(i</span>con) =&gt; {</span>
-    const billUrl = <span class="cstat-no" title="statement not covered" >icon.getAttribute("data-bill-url")</span>
+    const billUrl = <span class="cstat-no" title="statement not covered" >icon.getAttribute('data-bill-url')</span>
+    const fileName = <span class="cstat-no" title="statement not covered" >icon.parentNode.querySelector(".eye-title").innerText</span>
+<span class="cstat-no" title="statement not covered" >    if(isImage(fileName)){</span>
     const imgWidth = <span class="cstat-no" title="statement not covered" >Math.floor($('#modaleFile').width() * 0.5)</span>
-<span class="cstat-no" title="statement not covered" >    $('#modaleFile').find(".modal-body").html(`&lt;div style='text-align: center;'&gt;&lt;img width=${imgWidth} src=${billUrl} /&gt;&lt;/div&gt;`)</span>
+<span class="cstat-no" title="statement not covered" >    $('#modaleFile').</span>
+      find('.modal-body').
+      html(
+        `&lt;div style='text-align: center;'&gt;&lt;img width=${imgWidth} src=${billUrl} /&gt;&lt;/div&gt;`)
 <span class="cstat-no" title="statement not covered" >    $('#modaleFile').modal('show')</span>
+    }else {
+<span class="cstat-no" title="statement not covered" >      window.open(billUrl,'_blank')</span>
+    }
   }
 &nbsp;
   // not need to cover this function by tests
   getBills = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
     const userEmail = <span class="cstat-no" title="statement not covered" >localStorage.getItem('user') ?</span>
-      JSON.parse(localStorage.getItem('user')).email : ""
+      JSON.parse(localStorage.getItem('user')).email : ''
 <span class="cstat-no" title="statement not covered" >    if (this.firestore) {</span>
-<span class="cstat-no" title="statement not covered" >      return this.firestore</span>
-      .bills()
-      .get()
-      .then(<span class="fstat-no" title="function not covered" >sn</span>apshot =&gt; {
-        const bills = <span class="cstat-no" title="statement not covered" >snapshot.docs</span>
-          .map(<span class="fstat-no" title="function not covered" >do</span>c =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
-            ...doc.data(),
-            date: formatDate(doc.data().date),
-            status: formatStatus(doc.data().status),
-            dateTmp: new Date(doc.data().date) /*dateTmp: variable temporaire pour la comparaison*/
-        }))
-          .filter(<span class="fstat-no" title="function not covered" >bi</span>ll =&gt; <span class="cstat-no" title="statement not covered" >bill.email === userEmail)</span>
+<span class="cstat-no" title="statement not covered" >      return this.firestore.bills().get().then(<span class="fstat-no" title="function not covered" >sn</span>apshot =&gt; {</span>
+        /*snapshot.docs.forEach(doc =&gt; {
+            let arr = doc.data()
+            let date1 = arr.date
+            if (isValidDate(new Date(date1)) === false)
+              console.log(arr)
+          },
+        )*/
+        const bills = <span class="cstat-no" title="statement not covered" >snapshot.docs.map(<span class="fstat-no" title="function not covered" >do</span>c =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
+          ...doc.data(),
+          date: formatDate(doc.data().date),
+          status: formatStatus(doc.data().status),
+          dateTmp: getDate(doc.data().date),
+          /*dateTmp: variable temporaire pour la comparaison*/
+        })).filter(<span class="fstat-no" title="function not covered" >bi</span>ll =&gt; <span class="cstat-no" title="statement not covered" >bill.email === userEmail)</span>
         /*bills.sort((a,b) =&gt; (a.dateTmp &gt; b.dateTmp) ? 1 : ((b.dateTmp &gt; a.dateTmp) ? -1 : 0))*/
 <span class="cstat-no" title="statement not covered" >        return bills</span>
-      })
-      .catch(<span class="fstat-no" title="function not covered" >er</span>ror =&gt; <span class="cstat-no" title="statement not covered" >error)</span>
+      }).catch(<span class="fstat-no" title="function not covered" >er</span>ror =&gt; <span class="cstat-no" title="statement not covered" >error)</span>
     }
   }
 }
@@ -223,7 +271,7 @@ export default class {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Mar 15 2021 10:49:56 GMT+0100 (GMT+01:00)
+                at Mon Mar 15 2021 18:17:08 GMT+0100 (GMT+01:00)
             </div>
         </div>
         <script src="../prettify.js"></script>
