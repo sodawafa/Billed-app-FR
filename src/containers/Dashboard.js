@@ -1,4 +1,4 @@
-import { formatDate } from '../app/format.js'
+import { formatDate, isImage } from '../app/format.js'
 import DashboardFormUI from '../views/DashboardFormUI.js'
 import BigBilledIcon from '../assets/svg/big_billed.js'
 import { ROUTES_PATH } from '../constants/routes.js'
@@ -72,7 +72,6 @@ export default class {
     this.onNavigate = onNavigate
     this.firestore = firestore
     /*.filter(bill => bill.status === '')*/
-
     $('#arrow-icon1').click((e) => this.handleShowTickets(e, bills, 1))
     $('#arrow-icon2').click((e) => this.handleShowTickets(e, bills, 2))
     $('#arrow-icon3').click((e) => this.handleShowTickets(e, bills, 3))
@@ -82,9 +81,15 @@ export default class {
 
   handleClickIconEye = () => {
     const billUrl = $('#icon-eye-d').attr("data-bill-url")
+    const fileName = $("#file-name-admin").text()
     const imgWidth = Math.floor($('#modaleFileAdmin1').width() * 0.8)
-    $('#modaleFileAdmin1').find(".modal-body").html(`<div style='text-align: center;'><img width=${imgWidth} src=${billUrl} /></div>`)
-    if (typeof $('#modaleFileAdmin1').modal === 'function') $('#modaleFileAdmin1').modal('show')
+    if(isImage(fileName)){
+      $('#modaleFileAdmin1').find(".modal-body").html(`<div style='text-align: center;'><img width=${imgWidth} src=${billUrl} /></div>`)
+      if (typeof $('#modaleFileAdmin1').modal === 'function') $('#modaleFileAdmin1').modal('show')
+    }else {
+      window.open(billUrl, '_blank');
+      /*$('#modaleFileAdmin1').find(".modal-body").html(`<div style='text-align: center;'><a target="_blank" href=${billUrl}>télécharger</a></div>`)*/
+    }
   }
 
   handleEditTicket(e, bill, bills) {
@@ -106,7 +111,7 @@ export default class {
     }
 
     $('.vertical-navbar').css({ height: '120vh' })
-
+/*console.debug(isImage(bill.fileName))*/
     $('#icon-eye-d').click(this.handleClickIconEye)
     $('#btn-accept-bill').click((e) => this.handleAcceptSubmit(e, bill))
     $('#btn-refuse-bill').click((e) => this.handleRefuseSubmit(e, bill))

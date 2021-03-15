@@ -1,7 +1,11 @@
 #eye {
   cursor: pointer;
+  padding-right: 20px;
 }
-
 #download {
   cursor: pointer;
+}
+.actions-view {
+  display: inline-flex;
+  /*white-space: nowrap;*/
 }

@@ -32,6 +32,11 @@ export const isValidDate = (date) => {
   return false
 }
 
+export const isImage = (fileName) => {
+  console.log(fileName)
+  return (/\.(gif|jpe?g|tiff?|png|webp|bmp)$/i).test(fileName)
+}
+
 export const formatStatus = (status) => {
   switch (status) {
     case 'pending':

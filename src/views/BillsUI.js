@@ -13,7 +13,7 @@ const row = (bill) => {
       <td>${bill.amount} €</td>
       <td>${bill.status}</td>
       <td>
-        ${Actions(bill.fileUrl)}
+        ${Actions(bill.fileName,bill.fileUrl)}
       </td>
     </tr>
     `)
@@ -47,8 +47,7 @@ export default ({ data: bills, loading, error }) => {
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-          </div>
+          <div class="modal-body"></div>
         </div>
       </div>
     </div>

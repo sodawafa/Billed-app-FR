@@ -2,6 +2,10 @@
 import { ROUTES_PATH } from '../constants/routes.js'
 import Logout from "./Logout.js"
 
+export const isAcceptedExt = (fileName) => {
+  /*console.log(fileName)*/
+  return (/\.(gif|jpe?g|tiff?|png|webp|bmp|pdf)$/i).test(fileName)
+}
 export default class NewBill {
   constructor({ document, onNavigate, firestore, localStorage }) {
     this.document = document
@@ -19,18 +23,28 @@ export default class NewBill {
     const file = this.document.querySelector(`input[data-testid="file"]`).files[0]
     const filePath = e.target.value.split(/\\/g)
     const fileName = filePath[filePath.length-1]
-    this.firestore
-      .storage
-      .ref(`justificatifs/${fileName}`)
-      .put(file)
-      .then(snapshot => snapshot.ref.getDownloadURL())
-      .then(url => {
-        this.fileUrl = url
-        this.fileName = fileName
-      })
+
+     if(isAcceptedExt(fileName)) {
+
+       this.firestore.storage.ref(`justificatifs/${fileName}`).
+         put(file).
+         then(snapshot => snapshot.ref.getDownloadURL()).
+         then(url => {
+           this.fileUrl = url
+           this.fileName = fileName
+         })
+     }else{
+       this.fileUrl=null
+       this.fileName=null
+       alert("Extension du fichier n'est pas acceptée")
+     }
   }
   handleSubmit = e => {
     e.preventDefault()
+    if(!this.fileName){
+      alert("Fichier n'est pas acceptée")
+      return;
+    }
     const email = JSON.parse(localStorage.getItem("user")).email
     const bill = {
       email,
