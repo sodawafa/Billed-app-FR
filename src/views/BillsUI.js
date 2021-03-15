@@ -17,7 +17,7 @@ const row = (bill) => {
       </td>
     </tr>
     `)
-  }
+}
 
 const rows = (data) => {
   /*return (data && data.length) ? data.map(bill => row(bill)).join("") : ""*/
@@ -29,8 +29,7 @@ const rows = (data) => {
       }))
     }
     data.sort((a,b) => (a.dateTmp > b.dateTmp) ? -1 : ((b.dateTmp > a.dateTmp) ? 1 : 0))
-
-    return  data.map(bill => row(bill)).join("")
+    return data.map(bill => row(bill)).join("")
   }
 
   return ""

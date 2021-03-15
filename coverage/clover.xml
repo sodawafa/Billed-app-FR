@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1615741669168" clover="3.2.0">
-  <project timestamp="1615741669168" name="All files">
-    <metrics statements="230" coveredstatements="153" conditionals="110" coveredconditionals="79" methods="71" coveredmethods="40" elements="411" coveredelements="272" complexity="0" loc="230" ncloc="230" packages="3" files="16" classes="16"/>
+<coverage generated="1615801796330" clover="3.2.0">
+  <project timestamp="1615801796331" name="All files">
+    <metrics statements="227" coveredstatements="148" conditionals="100" coveredconditionals="68" methods="72" coveredmethods="41" elements="399" coveredelements="257" complexity="0" loc="227" ncloc="227" packages="3" files="16" classes="16"/>
     <package name="constants">
       <metrics statements="8" coveredstatements="8" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
       <file name="routes.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\constants\routes.js">
@@ -20,7 +20,7 @@
       </file>
     </package>
     <package name="containers">
-      <metrics statements="190" coveredstatements="115" conditionals="71" coveredconditionals="43" methods="54" coveredmethods="23"/>
+      <metrics statements="186" coveredstatements="109" conditionals="59" coveredconditionals="31" methods="55" coveredmethods="24"/>
       <file name="Bills.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\containers\Bills.js">
         <metrics statements="25" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="10" coveredmethods="0"/>
         <line num="7" count="0" type="stmt"/>
@@ -50,7 +50,7 @@
         <line num="50" count="0" type="stmt"/>
       </file>
       <file name="Dashboard.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\containers\Dashboard.js">
-        <metrics statements="78" coveredstatements="70" conditionals="45" coveredconditionals="37" methods="25" coveredmethods="16"/>
+        <metrics statements="74" coveredstatements="64" conditionals="33" coveredconditionals="25" methods="26" coveredmethods="17"/>
         <line num="8" count="5" type="stmt"/>
         <line num="9" count="27" type="cond" truecount="4" falsecount="0"/>
         <line num="15" count="24" type="cond" truecount="1" falsecount="1"/>
@@ -66,69 +66,65 @@
         <line num="54" count="5" type="stmt"/>
         <line num="55" count="8" type="cond" truecount="4" falsecount="0"/>
         <line num="58" count="5" type="stmt"/>
-        <line num="59" count="3" type="cond" truecount="3" falsecount="0"/>
-        <line num="61" count="1" type="stmt"/>
-        <line num="63" count="1" type="stmt"/>
-        <line num="65" count="1" type="stmt"/>
+        <line num="59" count="19" type="cond" truecount="3" falsecount="0"/>
+        <line num="61" count="9" type="stmt"/>
+        <line num="63" count="5" type="stmt"/>
+        <line num="65" count="5" type="stmt"/>
         <line num="71" count="5" type="stmt"/>
         <line num="72" count="5" type="stmt"/>
         <line num="73" count="5" type="stmt"/>
-        <line num="74" count="5" type="stmt"/>
-        <line num="75" count="5" type="stmt"/>
         <line num="76" count="5" type="stmt"/>
         <line num="77" count="5" type="stmt"/>
         <line num="78" count="5" type="stmt"/>
-        <line num="81" count="5" type="stmt"/>
-        <line num="82" count="1" type="stmt"/>
-        <line num="83" count="1" type="stmt"/>
+        <line num="79" count="5" type="stmt"/>
+        <line num="80" count="5" type="stmt"/>
+        <line num="83" count="5" type="stmt"/>
         <line num="84" count="1" type="stmt"/>
-        <line num="85" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="89" count="2" type="cond" truecount="4" falsecount="0"/>
-        <line num="90" count="2" type="cond" truecount="4" falsecount="0"/>
-        <line num="91" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="92" count="1" type="stmt"/>
-        <line num="93" count="4" type="stmt"/>
-        <line num="95" count="1" type="stmt"/>
-        <line num="96" count="1" type="stmt"/>
-        <line num="97" count="1" type="stmt"/>
-        <line num="98" count="1" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
+        <line num="86" count="1" type="stmt"/>
+        <line num="87" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="91" count="2" type="stmt"/>
+        <line num="95" count="2" type="stmt"/>
+        <line num="96" count="8" type="stmt"/>
+        <line num="99" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="100" count="1" type="stmt"/>
-        <line num="102" count="1" type="stmt"/>
+        <line num="104" count="1" type="stmt"/>
         <line num="105" count="1" type="stmt"/>
-        <line num="106" count="1" type="stmt"/>
         <line num="108" count="2" type="stmt"/>
-        <line num="109" count="2" type="stmt"/>
         <line num="110" count="2" type="stmt"/>
-        <line num="113" count="5" type="stmt"/>
-        <line num="114" count="1" type="stmt"/>
-        <line num="119" count="1" type="stmt"/>
-        <line num="120" count="1" type="stmt"/>
-        <line num="123" count="5" type="stmt"/>
-        <line num="124" count="1" type="stmt"/>
-        <line num="129" count="1" type="stmt"/>
-        <line num="130" count="1" type="stmt"/>
-        <line num="134" count="4" type="cond" truecount="4" falsecount="0"/>
-        <line num="135" count="4" type="cond" truecount="4" falsecount="0"/>
-        <line num="136" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="137" count="3" type="stmt"/>
-        <line num="138" count="3" type="stmt"/>
-        <line num="140" count="3" type="stmt"/>
-        <line num="142" count="1" type="stmt"/>
-        <line num="143" count="1" type="stmt"/>
-        <line num="145" count="1" type="stmt"/>
-        <line num="148" count="4" type="stmt"/>
-        <line num="149" count="16" type="stmt"/>
-        <line num="152" count="4" type="stmt"/>
-        <line num="157" count="5" type="stmt"/>
-        <line num="158" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="159" count="0" type="stmt"/>
-        <line num="163" count="0" type="stmt"/>
-        <line num="164" count="0" type="stmt"/>
-        <line num="170" count="0" type="stmt"/>
-        <line num="177" count="5" type="stmt"/>
-        <line num="178" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="179" count="0" type="stmt"/>
+        <line num="111" count="2" type="stmt"/>
+        <line num="112" count="2" type="stmt"/>
+        <line num="115" count="5" type="stmt"/>
+        <line num="116" count="1" type="stmt"/>
+        <line num="121" count="1" type="stmt"/>
+        <line num="122" count="1" type="stmt"/>
+        <line num="125" count="5" type="stmt"/>
+        <line num="126" count="1" type="stmt"/>
+        <line num="131" count="1" type="stmt"/>
+        <line num="132" count="1" type="stmt"/>
+        <line num="136" count="4" type="cond" truecount="4" falsecount="0"/>
+        <line num="137" count="4" type="stmt"/>
+        <line num="139" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="140" count="1" type="stmt"/>
+        <line num="141" count="1" type="stmt"/>
+        <line num="144" count="3" type="stmt"/>
+        <line num="145" count="3" type="stmt"/>
+        <line num="149" count="4" type="stmt"/>
+        <line num="150" count="16" type="stmt"/>
+        <line num="151" count="5" type="stmt"/>
+        <line num="152" count="0" type="stmt"/>
+        <line num="153" count="0" type="stmt"/>
+        <line num="156" count="4" type="stmt"/>
+        <line num="160" count="5" type="stmt"/>
+        <line num="161" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="162" count="0" type="stmt"/>
+        <line num="166" count="0" type="stmt"/>
+        <line num="167" count="0" type="stmt"/>
+        <line num="173" count="0" type="stmt"/>
+        <line num="180" count="5" type="stmt"/>
+        <line num="181" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="182" count="0" type="stmt"/>
+        <line num="185" count="0" type="stmt"/>
       </file>
       <file name="Login.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\containers\Login.js">
         <metrics statements="51" coveredstatements="38" conditionals="14" coveredconditionals="6" methods="9" coveredmethods="5"/>
@@ -228,27 +224,28 @@
       </file>
     </package>
     <package name="views">
-      <metrics statements="32" coveredstatements="30" conditionals="34" coveredconditionals="31" methods="16" coveredmethods="16"/>
+      <metrics statements="33" coveredstatements="31" conditionals="36" coveredconditionals="32" methods="16" coveredmethods="16"/>
       <file name="Actions.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\views\Actions.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="5" count="6" type="stmt"/>
       </file>
       <file name="BillsUI.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\views\BillsUI.js">
-        <metrics statements="14" coveredstatements="12" conditionals="12" coveredconditionals="9" methods="7" coveredmethods="7"/>
-        <line num="8" count="6" type="stmt"/>
-        <line num="9" count="4" type="stmt"/>
-        <line num="23" count="6" type="stmt"/>
+        <metrics statements="15" coveredstatements="13" conditionals="14" coveredconditionals="10" methods="7" coveredmethods="7"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="22" count="6" type="stmt"/>
         <line num="24" count="5" type="cond" truecount="4" falsecount="0"/>
-        <line num="25" count="4" type="stmt"/>
-        <line num="29" count="6" type="cond" truecount="3" falsecount="1"/>
-        <line num="32" count="4" type="stmt"/>
-        <line num="34" count="4" type="stmt"/>
-        <line num="39" count="5" type="stmt"/>
-        <line num="56" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="57" count="0" type="stmt"/>
+        <line num="25" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="31" count="6" type="cond" truecount="3" falsecount="1"/>
+        <line num="33" count="4" type="stmt"/>
+        <line num="36" count="4" type="stmt"/>
+        <line num="41" count="5" type="stmt"/>
         <line num="58" count="5" type="cond" truecount="1" falsecount="1"/>
         <line num="59" count="0" type="stmt"/>
-        <line num="62" count="5" type="stmt"/>
+        <line num="60" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="64" count="5" type="stmt"/>
       </file>
       <file name="DashboardFormUI.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\views\DashboardFormUI.js">
         <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>

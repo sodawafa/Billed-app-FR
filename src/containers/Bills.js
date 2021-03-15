@@ -1,14 +1,20 @@
 import { ROUTES_PATH } from '../constants/routes.js'
-import { formatDate, formatStatus } from "../app/format.js"
-import Logout from "./Logout.js"
+import {
+  formatDate,
+  formatStatus,
+  getDate,
+  isValidDate,
+} from '../app/format.js'
+import Logout from './Logout.js'
 
 export default class {
-  constructor({ document, onNavigate, firestore, localStorage }) {
+  constructor ({ document, onNavigate, firestore, localStorage }) {
     this.document = document
     this.onNavigate = onNavigate
     this.firestore = firestore
     const buttonNewBill = document.querySelector(`button[data-testid="btn-new-bill"]`)
-    if (buttonNewBill) buttonNewBill.addEventListener('click', this.handleClickNewBill)
+    if (buttonNewBill) buttonNewBill.addEventListener('click',
+      this.handleClickNewBill)
     const iconEye = document.querySelectorAll(`div[data-testid="icon-eye"]`)
     if (iconEye) iconEye.forEach(icon => {
       icon.addEventListener('click', (e) => this.handleClickIconEye(icon))
@@ -21,33 +27,38 @@ export default class {
   }
 
   handleClickIconEye = (icon) => {
-    const billUrl = icon.getAttribute("data-bill-url")
+    const billUrl = icon.getAttribute('data-bill-url')
     const imgWidth = Math.floor($('#modaleFile').width() * 0.5)
-    $('#modaleFile').find(".modal-body").html(`<div style='text-align: center;'><img width=${imgWidth} src=${billUrl} /></div>`)
+    $('#modaleFile').
+      find('.modal-body').
+      html(
+        `<div style='text-align: center;'><img width=${imgWidth} src=${billUrl} /></div>`)
     $('#modaleFile').modal('show')
   }
 
   // not need to cover this function by tests
   getBills = () => {
     const userEmail = localStorage.getItem('user') ?
-      JSON.parse(localStorage.getItem('user')).email : ""
+      JSON.parse(localStorage.getItem('user')).email : ''
     if (this.firestore) {
-      return this.firestore
-      .bills()
-      .get()
-      .then(snapshot => {
-        const bills = snapshot.docs
-          .map(doc => ({
-            ...doc.data(),
-            date: formatDate(doc.data().date),
-            status: formatStatus(doc.data().status),
-            dateTmp: new Date(doc.data().date) /*dateTmp: variable temporaire pour la comparaison*/
-        }))
-          .filter(bill => bill.email === userEmail)
+      return this.firestore.bills().get().then(snapshot => {
+        /*snapshot.docs.forEach(doc => {
+            let arr = doc.data()
+            let date1 = arr.date
+            if (isValidDate(new Date(date1)) === false)
+              console.log(arr)
+          },
+        )*/
+        const bills = snapshot.docs.map(doc => ({
+          ...doc.data(),
+          date: formatDate(doc.data().date),
+          status: formatStatus(doc.data().status),
+          dateTmp: getDate(doc.data().date),
+          /*dateTmp: variable temporaire pour la comparaison*/
+        })).filter(bill => bill.email === userEmail)
         /*bills.sort((a,b) => (a.dateTmp > b.dateTmp) ? 1 : ((b.dateTmp > a.dateTmp) ? -1 : 0))*/
         return bills
-      })
-      .catch(error => error)
+      }).catch(error => error)
     }
   }
 }
