@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.5% </span>
+                <span class="strong">78.38% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>20/32</span>
+                <span class='fraction'>29/37</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">66.67% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/12</span>
+                <span class='fraction'>12/18</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60.71% </span>
+                <span class="strong">76.67% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>17/28</span>
+                <span class='fraction'>23/30</span>
             </div>
         
             
@@ -125,7 +125,10 @@
 <a name='L66'></a><a href='#L66'>66</a>
 <a name='L67'></a><a href='#L67'>67</a>
 <a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -154,16 +157,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -212,7 +218,7 @@ export default class {
       this.handleClickNewBill)
     const iconEye = document.querySelectorAll(`div[data-testid="icon-eye"]`)
     <span class="missing-if-branch" title="else path not taken" >E</span>if (iconEye) iconEye.forEach(icon =&gt; {
-      icon.addEventListener('click', (e) =&gt; this.handleClickIconEye(icon))
+      icon.addEventListener('click', (e) =&gt; this.handleClickIconEye(e))
     })
     new Logout({ document, localStorage, onNavigate })
   }
@@ -221,17 +227,20 @@ export default class {
     this.onNavigate(ROUTES_PATH['NewBill'])
   }
 &nbsp;
-  handleClickIconEye = (icon) =&gt; {
-    const billUrl = icon.getAttribute('data-bill-url')
-    const fileName = icon.parentNode.querySelector('.eye-title').innerText
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (isImage(fileName) === 1) {
-      const imgWidth = <span class="cstat-no" title="statement not covered" >Math.floor($('#modaleFile').width() * 0.5)</span>
-<span class="cstat-no" title="statement not covered" >      $('#modaleFile').</span>
+  handleClickIconEye = (e, icon, fileName, billUrl) =&gt; {
+    //console.log('see', icon, fileName, billUrl)
+    if(!icon)icon = e.currentTarget
+    if(!billUrl) billUrl = icon.getAttribute('data-bill-url')
+    if(!fileName) fileName = icon.parentNode.querySelector('.eye-title').innerText
+    if (isImage(fileName) === 1) {
+      const imgWidth = Math.floor($('#modaleFile').width() * 0.5)
+      $('#modaleFile').
         find('.modal-body').
         html(`&lt;div style='text-align: center;'&gt;&lt;img width=${imgWidth} src=${billUrl} /&gt;&lt;/div&gt;`)
-<span class="cstat-no" title="statement not covered" >      $('#modaleFile').modal('show')</span>
-    } else <span class="missing-if-branch" title="if path not taken" >I</span>if (isImage(fileName) === 2) {
-<span class="cstat-no" title="statement not covered" >      window.open(billUrl, '_blank')</span>
+      $('#modaleFile').modal('show')
+    } else if (isImage(fileName) === 2) {
+      window.open(billUrl, '_blank')
+      $('#modaleFile').find('.modal-body').html('')
     }
   }
 &nbsp;
@@ -268,7 +277,7 @@ export default class {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Mar 17 2021 16:05:28 GMT+0100 (GMT+01:00)
+                at Wed Mar 17 2021 18:19:32 GMT+0100 (GMT+01:00)
             </div>
         </div>
         <script src="../prettify.js"></script>

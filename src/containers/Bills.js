@@ -17,7 +17,7 @@ export default class {
       this.handleClickNewBill)
     const iconEye = document.querySelectorAll(`div[data-testid="icon-eye"]`)
     if (iconEye) iconEye.forEach(icon => {
-      icon.addEventListener('click', (e) => this.handleClickIconEye(icon))
+      icon.addEventListener('click', (e) => this.handleClickIconEye(e))
     })
     new Logout({ document, localStorage, onNavigate })
   }
@@ -26,9 +26,11 @@ export default class {
     this.onNavigate(ROUTES_PATH['NewBill'])
   }
 
-  handleClickIconEye = (icon) => {
-    const billUrl = icon.getAttribute('data-bill-url')
-    const fileName = icon.parentNode.querySelector('.eye-title').innerText
+  handleClickIconEye = (e, icon, fileName, billUrl) => {
+    //console.log('see', icon, fileName, billUrl)
+    if(!icon)icon = e.currentTarget
+    if(!billUrl) billUrl = icon.getAttribute('data-bill-url')
+    if(!fileName) fileName = icon.parentNode.querySelector('.eye-title').innerText
     if (isImage(fileName) === 1) {
       const imgWidth = Math.floor($('#modaleFile').width() * 0.5)
       $('#modaleFile').

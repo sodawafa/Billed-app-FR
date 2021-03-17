@@ -3,24 +3,44 @@ import BillsUI from '../views/BillsUI.js'
 import { bills } from '../fixtures/bills.js'
 import Bills from '../containers/Bills.js'
 import { localStorageMock } from '../__mocks__/localStorage'
-import DashboardFormUI from '../views/DashboardFormUI'
 import { ROUTES, ROUTES_PATH } from '../constants/routes'
-import Dashboard from '../containers/Dashboard'
 import userEvent from '@testing-library/user-event'
 import firebase from '../__mocks__/firebase'
-import DashboardUI from '../views/DashboardUI'
 import NewBillUI from '../views/NewBillUI'
-
-window.open = (url, target) => {
-  document.body.innerHTML = url
-}
-//window.open = jest.fn();
-//window.open = () => {};  // provide an empty implementation for window.open
-//window.open.mockClear();
 
 /*test Bills date et trie de Bills*/
 describe('Given I am connected as an employee', () => {
+
+  Object.defineProperty(window, 'localStorage', { value: localStorageMock })
+  window.localStorage.setItem('user', JSON.stringify({
+    type: 'Employee',
+  }))
+
+  const onNavigate = (pathname) => {
+    document.body.innerHTML = ROUTES({ pathname })
+  }
+  const firestore = null
+
+  window.open = (url, target) => {
+    document.body.innerHTML = url
+  }/*jest.fn()*/
+  $.fn.modal = jest.fn()
+
   describe('When I am on Bills Page', () => {
+    describe('When the page is loading', () => {
+      test('Then, Loading page should be rendered', () => {
+        const html = BillsUI({ loading: true })
+        document.body.innerHTML = html
+        expect(screen.getAllByText('Loading...')).toBeTruthy()
+      })
+    })
+    describe('When back-end send an error message', () => {
+      test('Then, Error page should be rendered', () => {
+        const html = BillsUI({ error: 'some error message' })
+        document.body.innerHTML = html
+        expect(screen.getAllByText('Erreur')).toBeTruthy()
+      })
+    })
     test('Then bill icon in vertical layout should be highlighted', () => {
       const html = BillsUI({ data: [] })
       document.body.innerHTML = html
@@ -36,24 +56,11 @@ describe('Given I am connected as an employee', () => {
       const datesSorted = [...dates].sort(antiChrono)
       expect(dates).toEqual(datesSorted)
     })
-  })
-})
 
-describe('Given I am connected as an employee', () => {
-  describe('When I am on Bills Page', () => {
-    describe('When I click on new bill', () => {
-      test('Then see new bill page', () => {
-        Object.defineProperty(window, 'localStorage',
-          { value: localStorageMock })
-        window.localStorage.setItem('user', JSON.stringify({
-          type: 'Employee',
-        }))
+    describe('When I click on new bill button', () => {
+      test('Then should see new bill page', () => {
         const html = BillsUI({ data: [bills[0]] })
         document.body.innerHTML = html
-        const onNavigate = (pathname) => {
-          document.body.innerHTML = ROUTES({ pathname })
-        }
-        const firestore = null
 
         const billsClass = new Bills({
           document,
@@ -62,6 +69,7 @@ describe('Given I am connected as an employee', () => {
           bills,
           localStorage: window.localStorage,
         })
+
         const newBillButton = screen.getByTestId('btn-new-bill')
         //const handleClickNewBill = jest.fn((e) => Bills.handleClickNewBill(e))
         const handleClickNewBill = jest.fn(billsClass.handleClickNewBill)
@@ -75,29 +83,12 @@ describe('Given I am connected as an employee', () => {
         expect(document.body.innerHTML).toBe(htmlNewBillUI)
       })
     })
-  })
-})
 
-/* Test Bills page avec les données */
-describe(
-  'Given I am connected as Employee and I am on Bills page and I clicked on a bill',
-  () => {
-
+    /* images */
     describe('When I click on the icon eye to show image', () => {
       test('A modal should open', () => {
-        Object.defineProperty(window, 'localStorage',
-          { value: localStorageMock })
-        window.localStorage.setItem('user', JSON.stringify({
-          type: 'Employee',
-        }))
         const html = BillsUI({ data: [bills[0]] })
         document.body.innerHTML = html
-        /*const html = DashboardFormUI(bills[0])
-        document.body.innerHTML = html*/
-        const onNavigate = (pathname) => {
-          document.body.innerHTML = ROUTES({ pathname })
-        }
-        const firestore = null
 
         const billsClass = new Bills({
           document,
@@ -108,34 +99,26 @@ describe(
         })
 
         /*test click sur image et modale */
-        const handleClickIconEye = jest.fn(billsClass.handleClickIconEye)
-
-        const eye = screen.getByTestId('icon-eye')
-        //expect(eye).toBeUndefined();
-        //expect(document.body.innerHTML).toBe('')
-        eye.addEventListener('click', handleClickIconEye(eye))
-        fireEvent.click(eye)
+        const eye = screen.getAllByTestId('icon-eye')[0]
+        //const eye = screen.getByTestId('icon-eye')
+        const handleClickIconEye = jest.fn(
+          (e) => billsClass.handleClickIconEye(e, eye, bills[0].fileName,
+            bills[0].fileUrl))
+        eye.addEventListener('click', handleClickIconEye)
+        userEvent.click(eye)
         expect(handleClickIconEye).toHaveBeenCalled()
-
+        /*expect(document.body.innerHTML).toBe('')*/
         const modale = screen.getByTestId('modaleFileEmployee')
         expect(modale).toBeTruthy()
-        //expect(modale.querySelector('.modal-body').innerHTML.length).toBeGreaterThan(0)
+        expect(modale.querySelector('.modal-body').innerHTML.length).
+          toBeGreaterThan(0)
       })
     })
-
     describe('When I click on the icon eye to show pdf', () => {
       test('new page must be open', () => {
-        Object.defineProperty(window, 'localStorage',
-          { value: localStorageMock })
-        window.localStorage.setItem('user', JSON.stringify({
-          type: 'Employee',
-        }))
         const html = BillsUI({ data: [bills[1]] })
         document.body.innerHTML = html
-        const onNavigate = (pathname) => {
-          document.body.innerHTML = ROUTES({ pathname })
-        }
-        const firestore = null
+
         const billsClass = new Bills({
           document,
           onNavigate,
@@ -143,23 +126,22 @@ describe(
           bills,
           localStorage: window.localStorage,
         })
-        /*test click sur image et modale */
-        const handleClickIconEye = jest.fn(billsClass.handleClickIconEye)
-
-        const eye = screen.getByTestId('icon-eye')
-        //expect(eye).toBeUndefined();
+        const handleClickIconEye = jest.fn(
+          (e) => billsClass.handleClickIconEye(e, eye, bills[1].fileName,
+            bills[1].fileUrl))
+        //const eye = screen.getByTestId('icon-eye')
+        const eye = screen.getAllByTestId('icon-eye')[0]
         eye.addEventListener('click', handleClickIconEye(eye))
         fireEvent.click(eye)
         expect(handleClickIconEye).toHaveBeenCalled()
-        //expect(screen.queryByTestId('modaleFileEmployee')).toBeNull()
-        //expect(screen.queryByTestId('window-target')).toBe('_blank')
-        /*const newWindowUrl = document.body.innerHTML
+        expect(screen.queryByTestId('modaleFileEmployee')).toBeNull()
+        const newWindowUrl = document.body.innerHTML
         document.body.innerHTML = bills[1].fileUrl
-        expect(document.body.innerHTML).toBe(newWindowUrl)*/
+        expect(document.body.innerHTML).toBe(newWindowUrl)
       })
     })
-
   })
+})
 
 // test d'intégration GET
 describe('Given I am a user connected as Employee', () => {
