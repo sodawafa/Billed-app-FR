@@ -3,7 +3,7 @@ import {
   formatDate,
   formatStatus,
   getDate,
-  isImage
+  isImage,
 } from '../app/format.js'
 import Logout from './Logout.js'
 
@@ -28,15 +28,16 @@ export default class {
 
   handleClickIconEye = (icon) => {
     const billUrl = icon.getAttribute('data-bill-url')
-    const fileName = icon.parentNode.querySelector(".eye-title").innerText
-    if(isImage(fileName)){
+    const fileName = icon.parentNode.querySelector('.eye-title').innerText
+    if (isImage(fileName) === 1) {
       const imgWidth = Math.floor($('#modaleFile').width() * 0.5)
       $('#modaleFile').
         find('.modal-body').
         html(`<div style='text-align: center;'><img width=${imgWidth} src=${billUrl} /></div>`)
       $('#modaleFile').modal('show')
-    } else {
-      window.open(billUrl,'_blank')
+    } else if (isImage(fileName) === 2) {
+      window.open(billUrl, '_blank')
+      $('#modaleFile').find('.modal-body').html('')
     }
   }
 

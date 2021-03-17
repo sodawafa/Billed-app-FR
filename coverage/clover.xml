@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1615828628553" clover="3.2.0">
-  <project timestamp="1615828628553" name="All files">
-    <metrics statements="241" coveredstatements="151" conditionals="108" coveredconditionals="69" methods="73" coveredmethods="41" elements="422" coveredelements="261" complexity="0" loc="241" ncloc="241" packages="3" files="16" classes="16"/>
+<coverage generated="1615993529172" clover="3.2.0">
+  <project timestamp="1615993529172" name="All files">
+    <metrics statements="243" coveredstatements="169" conditionals="112" coveredconditionals="74" methods="73" coveredmethods="46" elements="428" coveredelements="289" complexity="0" loc="243" ncloc="243" packages="3" files="16" classes="16"/>
     <package name="constants">
       <metrics statements="8" coveredstatements="8" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
       <file name="routes.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\constants\routes.js">
         <metrics statements="8" coveredstatements="8" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
-        <line num="6" count="5" type="stmt"/>
-        <line num="13" count="5" type="stmt"/>
-        <line num="14" count="13" type="cond" truecount="5" falsecount="0"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="14" count="15" type="cond" truecount="5" falsecount="0"/>
         <line num="16" count="3" type="stmt"/>
         <line num="18" count="3" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
         <line num="22" count="5" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
       </file>
@@ -20,54 +20,55 @@
       </file>
     </package>
     <package name="containers">
-      <metrics statements="200" coveredstatements="112" conditionals="67" coveredconditionals="32" methods="56" coveredmethods="24"/>
+      <metrics statements="202" coveredstatements="129" conditionals="71" coveredconditionals="36" methods="56" coveredmethods="29"/>
       <file name="Bills.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\containers\Bills.js">
-        <metrics statements="27" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="10" coveredmethods="0"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
+        <metrics statements="28" coveredstatements="17" conditionals="12" coveredconditionals="4" methods="10" coveredmethods="5"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="29" count="3" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+        <line num="32" count="4" type="cond" truecount="1" falsecount="1"/>
         <line num="33" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="46" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="48" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="44" count="3" type="stmt"/>
+        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
         <line num="65" count="0" type="stmt"/>
-        <line num="66" count="0" type="stmt"/>
       </file>
       <file name="Dashboard.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\containers\Dashboard.js">
-        <metrics statements="77" coveredstatements="66" conditionals="35" coveredconditionals="26" methods="26" coveredmethods="17"/>
-        <line num="8" count="5" type="stmt"/>
+        <metrics statements="78" coveredstatements="66" conditionals="37" coveredconditionals="26" methods="26" coveredmethods="17"/>
+        <line num="8" count="6" type="stmt"/>
         <line num="9" count="27" type="cond" truecount="4" falsecount="0"/>
         <line num="15" count="24" type="cond" truecount="1" falsecount="1"/>
         <line num="16" count="24" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
         <line num="25" count="24" type="stmt"/>
-        <line num="29" count="5" type="stmt"/>
+        <line num="29" count="6" type="stmt"/>
         <line num="30" count="8" type="stmt"/>
         <line num="31" count="8" type="cond" truecount="1" falsecount="1"/>
         <line num="33" count="8" type="cond" truecount="1" falsecount="1"/>
         <line num="36" count="8" type="stmt"/>
-        <line num="54" count="5" type="stmt"/>
+        <line num="54" count="6" type="stmt"/>
         <line num="55" count="8" type="cond" truecount="4" falsecount="0"/>
-        <line num="58" count="5" type="stmt"/>
+        <line num="58" count="6" type="stmt"/>
         <line num="59" count="19" type="cond" truecount="3" falsecount="0"/>
         <line num="61" count="9" type="stmt"/>
         <line num="63" count="5" type="stmt"/>
@@ -87,6 +88,7 @@
         <line num="86" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="87" count="1" type="stmt"/>
         <line num="88" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="89" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="90" count="0" type="stmt"/>
         <line num="96" count="2" type="stmt"/>
         <line num="100" count="2" type="stmt"/>
@@ -187,11 +189,11 @@
       </file>
       <file name="Logout.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\containers\Logout.js">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="5" count="6" type="stmt"/>
-        <line num="6" count="6" type="stmt"/>
-        <line num="7" count="6" type="stmt"/>
-        <line num="8" count="6" type="stmt"/>
-        <line num="11" count="6" type="stmt"/>
+        <line num="5" count="9" type="stmt"/>
+        <line num="6" count="9" type="stmt"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="8" count="9" type="stmt"/>
+        <line num="11" count="9" type="stmt"/>
         <line num="12" count="2" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
       </file>
@@ -238,28 +240,28 @@
       </file>
     </package>
     <package name="views">
-      <metrics statements="33" coveredstatements="31" conditionals="36" coveredconditionals="32" methods="16" coveredmethods="16"/>
+      <metrics statements="33" coveredstatements="32" conditionals="36" coveredconditionals="33" methods="16" coveredmethods="16"/>
       <file name="Actions.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\views\Actions.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="5" count="6" type="stmt"/>
+        <line num="5" count="9" type="stmt"/>
       </file>
       <file name="BillsUI.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\views\BillsUI.js">
-        <metrics statements="15" coveredstatements="13" conditionals="14" coveredconditionals="10" methods="7" coveredmethods="7"/>
+        <metrics statements="15" coveredstatements="14" conditionals="14" coveredconditionals="11" methods="7" coveredmethods="7"/>
         <line num="7" count="6" type="stmt"/>
-        <line num="8" count="4" type="stmt"/>
+        <line num="8" count="7" type="stmt"/>
         <line num="22" count="6" type="stmt"/>
-        <line num="24" count="5" type="cond" truecount="4" falsecount="0"/>
-        <line num="25" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="26" count="4" type="stmt"/>
+        <line num="24" count="8" type="cond" truecount="4" falsecount="0"/>
+        <line num="25" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="26" count="7" type="stmt"/>
         <line num="31" count="6" type="cond" truecount="3" falsecount="1"/>
-        <line num="32" count="4" type="stmt"/>
+        <line num="32" count="7" type="stmt"/>
         <line num="35" count="4" type="stmt"/>
-        <line num="40" count="5" type="stmt"/>
-        <line num="56" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="40" count="10" type="stmt"/>
+        <line num="56" count="10" type="cond" truecount="1" falsecount="1"/>
         <line num="57" count="0" type="stmt"/>
-        <line num="58" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="62" count="5" type="stmt"/>
+        <line num="58" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="62" count="8" type="stmt"/>
       </file>
       <file name="DashboardFormUI.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\views\DashboardFormUI.js">
         <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
@@ -276,7 +278,7 @@
       </file>
       <file name="ErrorPage.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\views\ErrorPage.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="5" count="5" type="stmt"/>
+        <line num="5" count="7" type="stmt"/>
       </file>
       <file name="LoadingPage.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\views\LoadingPage.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -288,15 +290,15 @@
       </file>
       <file name="NewBillUI.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\views\NewBillUI.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="5" count="2" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
       </file>
       <file name="VerticalLayout.js" path="C:\Users\sodaw\Documents\Projet 9-OPC\Billed-app-FR\src\views\VerticalLayout.js">
         <metrics statements="6" coveredstatements="6" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
-        <line num="7" count="22" type="stmt"/>
-        <line num="8" count="22" type="cond" truecount="2" falsecount="0"/>
-        <line num="9" count="7" type="stmt"/>
-        <line num="11" count="22" type="cond" truecount="4" falsecount="0"/>
-        <line num="12" count="1" type="stmt"/>
+        <line num="7" count="30" type="stmt"/>
+        <line num="8" count="30" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="15" type="stmt"/>
+        <line num="11" count="30" type="cond" truecount="4" falsecount="0"/>
+        <line num="12" count="9" type="stmt"/>
         <line num="29" count="21" type="stmt"/>
       </file>
     </package>

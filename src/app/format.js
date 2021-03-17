@@ -33,8 +33,12 @@ export const isValidDate = (date) => {
 }
 
 export const isImage = (fileName) => {
-  console.log(fileName)
-  return (/\.(gif|jpe?g|tiff?|png|webp|bmp)$/i).test(fileName)
+  console.log(fileName,(/\.(gif|jpe?g|tiff?|png|webp|bmp|pdf)$/i).test(fileName))
+  if (fileName && fileName.length > 4) {
+    if ((/\.(gif|jpe?g|tiff?|png|webp|bmp)$/i).test(fileName)) return 1
+    else if ((/\.(pdf)$/i).test(fileName)) return 2
+  }
+  return false
 }
 
 export const formatStatus = (status) => {

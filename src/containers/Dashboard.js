@@ -83,10 +83,10 @@ export default class {
     const billUrl = $('#icon-eye-d').attr("data-bill-url")
     const fileName = $("#file-name-admin").text()
     const imgWidth = Math.floor($('#modaleFileAdmin1').width() * 0.8)
-    if(isImage(fileName)){
+    if(isImage(fileName)===1){
       $('#modaleFileAdmin1').find(".modal-body").html(`<div style='text-align: center;'><img width=${imgWidth} src=${billUrl} /></div>`)
       if (typeof $('#modaleFileAdmin1').modal === 'function') $('#modaleFileAdmin1').modal('show')
-    } else {
+    } else if(isImage(fileName)===2){
       window.open(billUrl, '_blank');
       /*$('#modaleFileAdmin1').find(".modal-body").html(`<div style='text-align: center;'><a target="_blank" href=${billUrl}>télécharger</a></div>`)*/
     }
