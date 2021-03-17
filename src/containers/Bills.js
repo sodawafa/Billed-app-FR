@@ -13,12 +13,15 @@ export default class {
     this.onNavigate = onNavigate
     this.firestore = firestore
     const buttonNewBill = document.querySelector(`button[data-testid="btn-new-bill"]`)
-    if (buttonNewBill) buttonNewBill.addEventListener('click',
-      this.handleClickNewBill)
+    if (buttonNewBill) {
+      buttonNewBill.addEventListener('click',(e) => this.handleClickNewBill(e))
+    }
     const iconEye = document.querySelectorAll(`div[data-testid="icon-eye"]`)
-    if (iconEye) iconEye.forEach(icon => {
-      icon.addEventListener('click', (e) => this.handleClickIconEye(e))
-    })
+    if (iconEye) {
+      iconEye.forEach(icon => {
+        icon.addEventListener('click', (e) => this.handleClickIconEye(e))
+      })
+    }
     new Logout({ document, localStorage, onNavigate })
   }
 
@@ -28,14 +31,16 @@ export default class {
 
   handleClickIconEye = (e, icon, fileName, billUrl) => {
     //console.log('see', icon, fileName, billUrl)
-    if(!icon)icon = e.currentTarget
-    if(!billUrl) billUrl = icon.getAttribute('data-bill-url')
-    if(!fileName) fileName = icon.parentNode.querySelector('.eye-title').innerText
+    if (!icon) icon = e.currentTarget
+    if (!billUrl) billUrl = icon.getAttribute('data-bill-url')
+    if (!fileName) fileName = icon.parentNode.querySelector(
+      '.eye-title').innerText
     if (isImage(fileName) === 1) {
       const imgWidth = Math.floor($('#modaleFile').width() * 0.5)
       $('#modaleFile').
         find('.modal-body').
-        html(`<div style='text-align: center;'><img width=${imgWidth} src=${billUrl} /></div>`)
+        html(
+          `<div style='text-align: center;'><img width=${imgWidth} src=${billUrl} /></div>`)
       $('#modaleFile').modal('show')
     } else if (isImage(fileName) === 2) {
       window.open(billUrl, '_blank')
@@ -49,21 +54,13 @@ export default class {
       JSON.parse(localStorage.getItem('user')).email : ''
     if (this.firestore) {
       return this.firestore.bills().get().then(snapshot => {
-        /*snapshot.docs.forEach(doc => {
-            let arr = doc.data()
-            let date1 = arr.date
-            if (isValidDate(new Date(date1)) === false)
-              console.log(arr)
-          },
-        )*/
         const bills = snapshot.docs.map(doc => ({
           ...doc.data(),
           date: formatDate(doc.data().date),
           status: formatStatus(doc.data().status),
           dateTmp: getDate(doc.data().date),
-          /*dateTmp: variable temporaire pour la comparaison*/
         })).filter(bill => bill.email === userEmail)
-        /*bills.sort((a,b) => (a.dateTmp > b.dateTmp) ? 1 : ((b.dateTmp > a.dateTmp) ? -1 : 0))*/
+        /* dateTmp: variable temporaire pour la comparaison*/
         return bills
       }).catch(error => error)
     }

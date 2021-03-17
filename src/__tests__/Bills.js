@@ -56,7 +56,40 @@ describe('Given I am connected as an employee', () => {
       const datesSorted = [...dates].sort(antiChrono)
       expect(dates).toEqual(datesSorted)
     })
+      test('Then should null page', () => {
+        //const html = BillsUI({ data: [bills[0]] })
+        document.body.innerHTML = ''
+        let billsClass = new Bills({
+          document,
+          onNavigate,
+          firestore,
+          localStorage: window.localStorage,
+        })
+        expect(document.body.innerHTML).toBe('')
 
+        billsClass = new Bills({
+          document,
+          onNavigate,
+          firestore,
+          localStorage: window.localStorage,
+        })
+        /*
+        const newBillButton = screen.getByTestId('btn-new-bill')
+        const iconEye = screen.getByTestId('icon-eye')*/
+        expect(document.body.innerHTML).toBe('')
+        /*
+                const newBillButton = screen.getByTestId('btn-new-bill')
+                //const handleClickNewBill = jest.fn((e) => Bills.handleClickNewBill(e))
+                const handleClickNewBill = jest.fn(billsClass.handleClickNewBill)
+                newBillButton.addEventListener('click', handleClickNewBill)
+                fireEvent.click(newBillButton)
+                /!*userEvent.click(newBillButton)*!/
+                expect(handleClickNewBill).toHaveBeenCalled()
+                expect(screen.queryByTestId('form-new-bill')).toBeTruthy()
+                const htmlNewBillUI = document.body.innerHTML
+                document.body.innerHTML = NewBillUI()
+                expect(document.body.innerHTML).toBe(htmlNewBillUI)*/
+      })
     describe('When I click on new bill button', () => {
       test('Then should see new bill page', () => {
         const html = BillsUI({ data: [bills[0]] })
@@ -66,7 +99,6 @@ describe('Given I am connected as an employee', () => {
           document,
           onNavigate,
           firestore,
-          bills,
           localStorage: window.localStorage,
         })
 
@@ -94,7 +126,6 @@ describe('Given I am connected as an employee', () => {
           document,
           onNavigate,
           firestore,
-          bills,
           localStorage: window.localStorage,
         })
 
@@ -123,7 +154,6 @@ describe('Given I am connected as an employee', () => {
           document,
           onNavigate,
           firestore,
-          bills,
           localStorage: window.localStorage,
         })
         const handleClickIconEye = jest.fn(
