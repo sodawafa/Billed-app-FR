@@ -2,10 +2,6 @@
 import { ROUTES_PATH } from '../constants/routes.js'
 import Logout from "./Logout.js"
 
-export const isAcceptedExt = (fileName) => {
-  /*console.log(fileName)*/
-  return (/\.(gif|jpe?g|tiff?|png|webp|bmp|pdf)$/i).test(fileName)
-}
 export default class NewBill {
   constructor({ document, onNavigate, firestore, localStorage }) {
     this.document = document
@@ -24,7 +20,7 @@ export default class NewBill {
     const filePath = e.target.value.split(/\\/g)
     const fileName = filePath[filePath.length-1]
 
-     if(isAcceptedExt(fileName)) {
+     if((/\.(gif|jpe?g|tiff?|png|webp|bmp|pdf)$/i).test(fileName)) {
 
        this.firestore.storage.ref(`justificatifs/${fileName}`).
          put(file).
@@ -36,13 +32,13 @@ export default class NewBill {
      }else{
        this.fileUrl=null
        this.fileName=null
-       alert("Extension du fichier n'est pas acceptée")
+       window.alert("Extension du fichier n'est pas acceptée")
      }
   }
   handleSubmit = e => {
     e.preventDefault()
     if(!this.fileName){
-      alert("Fichier n'est pas acceptée")
+      window.alert("Fichier n'est pas acceptée")
       return;
     }
     const email = JSON.parse(localStorage.getItem("user")).email

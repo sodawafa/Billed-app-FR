@@ -149,7 +149,7 @@ describe('Given I am connected as an employee', () => {
     })
 
     describe('When I am in Bills Page', () => {
-      test('it should return undefined ', () => {
+      test('it should return undefined ', async () => {
         document.body.innerHTML = ''
         const billsClass = new Bills({
           document,
@@ -157,7 +157,8 @@ describe('Given I am connected as an employee', () => {
           firestore,
           localStorage: window.localStorage,
         })
-        expect(billsClass.getBills()).toBeUndefined
+        const data = await billsClass.getBills()
+        expect(data).toBeUndefined
       })
     })
   })
