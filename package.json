@@ -3,7 +3,6 @@
     "test": "jest --coverage --noStackTrace --silent --no-cache",
     "test-bill": "jest src/__tests__/Bills.js",
     "test-newbill": "jest src/__tests__/NewBill.js"
-
   },
   "jest": {
     "verbose": false,
@@ -23,7 +22,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "jquery": "^3.5.1",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "server": "^1.0.32"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.10.4",
